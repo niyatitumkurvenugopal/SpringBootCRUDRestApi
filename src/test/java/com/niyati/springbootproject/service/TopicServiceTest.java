@@ -29,8 +29,8 @@ class TopicServiceTest {
     @Test
     void canGetAllTopics() {
         List<Topic> detailsExpected = new ArrayList<>(Arrays.asList(
-                new Topic( "Java", "It is a programming language."),
-                new Topic( "Python", "It is a programming language.")
+                new Topic("Java", "It is a programming language."),
+                new Topic("Python", "It is a programming language.")
         ));
 
         when(topicRepository.findAll()).thenReturn(detailsExpected);
@@ -42,7 +42,7 @@ class TopicServiceTest {
     @Test
     void findUserById() {
         Long id = 1L;
-        Topic topic = new Topic( "Java", "It is a programming language.");
+        Topic topic = new Topic("Java", "It is a programming language.");
 
         when(topicRepository.findById(id)).thenReturn(Optional.of(topic));
 
@@ -52,7 +52,7 @@ class TopicServiceTest {
 
     @Test
     void canAddNewTopic() {
-        Topic topic = new Topic( "Java", "It is a programming language.");
+        Topic topic = new Topic("Java", "It is a programming language.");
 
         when(topicRepository.save(topic)).thenReturn(topic);
 
@@ -62,19 +62,19 @@ class TopicServiceTest {
 
     @Test
     void canUpdateTopic() {
-        Long id=1L;
-        Topic topic = new Topic( "Java", "It is a programming language.");
+        Long id = 1L;
+        Topic topic = new Topic("Java", "It is a programming language.");
 
         when(topicRepository.save(topic)).thenReturn(topic);
 
-        Topic result = topicService.updateTopic(id,topic);
+        Topic result = topicService.updateTopic(id, topic);
         assertEquals(topic, result);
     }
 
     @Test
     void canDeleteTopic() {
-        Long id=1L;
-        Topic topic = new Topic( "Java", "It is a programming language.");
+        Long id = 1L;
+        Topic topic = new Topic("Java", "It is a programming language.");
 
         String result = topicService.deleteTopic(id);
         assertEquals("Deleted Successfully.", result);
